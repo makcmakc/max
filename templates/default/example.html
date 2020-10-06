@@ -1,0 +1,392 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="Keywords">
+  <meta name="Description">
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,user-scalable=no,width=device-width">
+  <title>Live Viewer</title>
+
+  <!--------- Personal of "Example Page" ------------------------------------------------------------------> 
+  <style>
+    
+  </style>
+
+  </head>
+    <body>
+      
+    <div class="page-preview">
+      <div class="page-preview__header">
+        <div class="types">
+          <button data-mode="desktop" data-width="1200px" class="size-btn is-active">
+            <svg class="icon icon-desktop"><use xlink:href="#icon-desktop"></use></svg>
+            <strong>Desktop</strong><span>1200px</span>
+          </button>
+
+          <button data-mode="laptop" data-width="1040px" class="size-btn">
+            <svg class="icon icon-laptop"><use xlink:href="#icon-laptop"></use></svg>
+            <strong>Laptop</strong><span>1040px</span>
+          </button>
+
+          <button data-mode="laptop" data-width="820px" class="size-btn">
+            <svg class="icon icon-tablet"><use xlink:href="#icon-tablet"></use></svg>
+            <strong>Tablet</strong><span>820px</span>
+          </button>
+
+          <button data-mode="laptop" data-width="640px" class="size-btn">
+            <svg class="icon icon-mobile-horizontal"><use style="transform: rotate(-90deg);transform-origin: 15% 50%;" xlink:href="#icon-mobile-horizontal"></use></svg>
+            <strong>Mobile</strong><span>640px</span>
+          </button> 
+
+          <button data-mode="laptop" data-width="440px" class="size-btn">
+            <svg class="icon icon-mobile"><use xlink:href="#icon-mobile"></use></svg>
+            <strong>Mobile</strong><span>440px</span>
+          </button>         
+        </div>
+      </div>
+
+      <div class="page-preview__body">
+          <iframe id="livePreviewFrame" src="./index.html" width="1057" height="640" style="width: 100%;"></iframe>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--------- Source of "Example Page" ------------------------------------------------------------------> 
+
+
+
+<style>
+/*iframe {
+  display: none;
+}
+*/
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+.page-preview {
+  border-radius: 0;
+  height: 100%;
+}
+
+.page-preview__header {
+  background: #f2f2f2;
+  border: none;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+  padding: 6px 0;
+}
+
+
+
+.page-preview__header .types{
+  display: flex;
+  flex-direction: row;
+}
+
+.page-preview__header .types button {
+  height: 40px;
+  width: 135px;
+  border: none;
+  font-size: 14px;
+  color: #000;
+  text-align: right;
+  padding-left: 38px;
+  position: relative;
+  outline: none;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.page-preview__header .types button:active {}
+
+.page-preview__header .types .icon {
+  width: 100%;
+  height: 100%;      
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translate(0, -50%);
+  font-size: 20px;
+}
+
+.page-preview__body {
+  height: calc(100% - 70px);
+  overflow: hidden;
+  text-align: center;
+
+}
+
+.page-preview__body iframe {
+  border: none;
+  display: inline-block;
+  box-shadow: 0 0 0 2px #000;
+  height: 100%;
+}
+</style>  
+
+
+<svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="icon-desktop" viewBox="0 0 23.879 23.879" x="0px" y="0px" width="38px" height="38px">
+    <title>Monitor</title>
+    <g>
+      <rect x="8.52" y="19.698" style="fill:#030104;" width="6.84" height="1.215"/>
+      <polygon style="fill:#030104;" points="5.019,21.359 4.669,22.733 19.211,22.733 18.861,21.359    "/>
+      <path style="fill:#030104;" d="M22.827,1.145H1.052C0.471,1.145,0,1.616,0,2.198v15.656c0,0.581,0.471,1.053,1.052,1.053h21.774
+        c0.582,0,1.053-0.472,1.053-1.053V2.198C23.879,1.616,23.409,1.145,22.827,1.145z M21.775,16.801H2.106V3.25h19.669
+        C21.775,3.25,21.775,16.801,21.775,16.801z"/>
+    </g>    
+  </symbol>
+
+  <symbol id="icon-laptop" viewBox="0 0 490 490" x="0px" y="0px" width="40px" height="40px">
+    <title>Laptop</title>
+    <path d="M451.719,366.941V101.285c0-14.807-12.02-26.858-26.797-26.858H65.078c-14.777,0-26.797,12.051-26.797,26.858v265.657H0v16.216l24.5,32.417h441l24.5-32.417v-16.216H451.719z M68.906,105.036h352.187v261.905H68.906V105.036z"/>
+  </symbol>
+
+  <symbol id="icon-tablet" x="0px" y="0px" width="35px" height="35px" viewBox="0 0 955.4 955.4">
+    <title>Tablet</title>
+    <g>
+      <path d="M165.351,0c-32.6,0-59,26.4-59,59v836.4c0,33.1,26.9,60,60,60H789.05c33.102,0,60-26.9,60-60V59c0-32.6-26.398-59-59-59
+        H165.351z M477.75,896.1c-23.4,0-42.3-18.9-42.3-42.299c0-23.4,18.899-42.301,42.3-42.301c23.401,0,42.299,18.9,42.299,42.301
+        C520.05,877.199,501.151,896.1,477.75,896.1z M773.151,725.4c0,16.6-13.4,30-30,30H212.351c-16.6,0-30-13.4-30-30V104.9
+        c0-16.6,13.4-30,30-30H743.05c16.602,0,30,13.4,30,30v620.5H773.151z"/>
+    </g>
+  </symbol>  
+
+  <symbol id="icon-mobile-horizontal"  x="0px" y="0px" width="38px" height="38px" viewBox="0 0 35 35">
+    <title>Mobile Horizontal</title>
+    <g>
+      <path d="M25.302,0H9.698c-1.3,0-2.364,1.063-2.364,2.364v30.271C7.334,33.936,8.398,35,9.698,35h15.604
+        c1.3,0,2.364-1.062,2.364-2.364V2.364C27.666,1.063,26.602,0,25.302,0z M15.004,1.704h4.992c0.158,0,0.286,0.128,0.286,0.287
+        c0,0.158-0.128,0.286-0.286,0.286h-4.992c-0.158,0-0.286-0.128-0.286-0.286C14.718,1.832,14.846,1.704,15.004,1.704z M17.5,33.818
+        c-0.653,0-1.182-0.529-1.182-1.183s0.529-1.182,1.182-1.182s1.182,0.528,1.182,1.182S18.153,33.818,17.5,33.818z M26.021,30.625
+        H8.979V3.749h17.042V30.625z"/>
+    </g>
+  </symbol>  
+
+  <symbol id="icon-mobile" viewBox="0 0 35 35" x="0px" y="0px" width="35px" height="35px">
+    <title>Mobile</title>
+    <g>
+      <path d="M25.302,0H9.698c-1.3,0-2.364,1.063-2.364,2.364v30.271C7.334,33.936,8.398,35,9.698,35h15.604
+        c1.3,0,2.364-1.062,2.364-2.364V2.364C27.666,1.063,26.602,0,25.302,0z M15.004,1.704h4.992c0.158,0,0.286,0.128,0.286,0.287
+        c0,0.158-0.128,0.286-0.286,0.286h-4.992c-0.158,0-0.286-0.128-0.286-0.286C14.718,1.832,14.846,1.704,15.004,1.704z M17.5,33.818
+        c-0.653,0-1.182-0.529-1.182-1.183s0.529-1.182,1.182-1.182s1.182,0.528,1.182,1.182S18.153,33.818,17.5,33.818z M26.021,30.625
+        H8.979V3.749h17.042V30.625z"/>
+    </g>
+  </symbol> 
+</svg>
+    
+
+
+<script>
+  var navs = document.querySelectorAll('size-btn');
+  var body = document.querySelectorAll('body')[0];
+  var previewButtons = document.querySelectorAll('.pagelist__title');
+  var iframe = document.getElementById('livePreviewFrame');
+  var previewWrapper = document.querySelector('.page-preview__body');
+  // colors-pallete
+
+
+  function removeActive(){
+    [].forEach.call(previewButtons, function(button) {
+      button.classList.remove('is-active');
+    });
+  }
+
+  function getScrollbarWidth() {
+      var outer = document.createElement("div");
+      outer.style.visibility = "hidden";
+      outer.style.width = "100px";
+      outer.style.msOverflowStyle = "scrollbar"; // needed for WinJS apps
+
+      document.body.appendChild(outer);
+
+      var widthNoScroll = outer.offsetWidth;
+      // force scrollbars
+      outer.style.overflow = "scroll";
+
+      // add innerdiv
+      var inner = document.createElement("div");
+      inner.style.width = "100%";
+      outer.appendChild(inner);        
+
+      var widthWithScroll = inner.offsetWidth;
+
+      // remove divs
+      outer.parentNode.removeChild(outer);
+
+      return widthNoScroll - widthWithScroll;
+  }
+  var  scrollbarwidth = getScrollbarWidth();
+
+  [].forEach.call(previewButtons, function(button) {
+    button.addEventListener('click', function(event) {
+      
+      if(window.innerWidth < 780){return;}
+      event.preventDefault();
+      removeActive();
+      var el = event.currentTarget;
+      el.classList.add('is-active');
+      iframe.src = el.href;
+    }, false);
+  });
+
+  
+  var mode = 'wide';
+  [].forEach.call(navs, function(nav) {
+    nav.addEventListener('click', function(event) {
+        event.preventDefault();
+        mode = event.currentTarget.dataset.mode;
+        iframe.style.width = parseInt(event.currentTarget.getAttribute('data-width')) + parseInt(scrollbarwidth) + 'px';
+
+        body.setAttribute('data-mode','is-' + mode);
+
+
+        [].forEach.call(navs, function(nav) {
+          nav.classList.remove('is-active');
+        })
+        event.currentTarget.classList.add('is-active');
+
+        setIframeWidth();
+    }, false);
+
+    function setIframeWidth(){
+      // getting preview area width
+      var pwidth = previewWrapper.offsetWidth;
+      var pheight = previewWrapper.offsetHeight;
+
+      // iframe width
+      var iwidth = iframe.offsetWidth;
+      var iheight = iframe.offsetHeight;
+
+      var scaleV = pheight/iheight;
+      var scaleH = pwidth/iwidth;
+
+      if(mode=='mobile'){
+        iframe.style.transform = 'scale('+ 1 +')';
+        iframe.style.height =  pheight + 'px';
+
+        
+        return;
+      }
+      if(scaleH>1){scaleH = 1;}
+      iframe.style.transform = 'scale('+ scaleH +')';
+
+      iframe.style.height =  pheight/scaleH + 'px';
+      // console.log(pheight*(2 - scaleV) + 'px');
+
+      var realheight = iframe.getBoundingClientRect().height;
+
+      if(realheight>pheight){
+        iframe.style.transform = 'scale('+ scaleV +')';
+      }
+
+
+
+      console.log(scaleV,scaleH);
+    }
+
+    setIframeWidth();
+    // resize event
+    window.addEventListener("resize", function(){
+      setIframeWidth();
+    });
+
+
+  });
+</script>
+<script>
+        var device = 'desktop';
+        function init($) {
+            $('#previewDesktopBtn').click(function (e) {
+                setLivePreviewFrameSize($(this));
+                setActiveResponsiveButton(this);
+                e.preventDefault();
+            });
+
+            $('#previewLaptopBtn').click(function (e) {
+                setLivePreviewFrameSize($(this));
+                setActiveResponsiveButton(this);
+                e.preventDefault();
+            });
+            $('#previewTabletBtn').click(function (e) {
+                setLivePreviewFrameSize($(this));
+                setActiveResponsiveButton(this);
+                e.preventDefault();
+            });
+            $('#previewPhoneHorizontalBtn').click(function (e) {
+                setLivePreviewFrameSize($(this));
+                setActiveResponsiveButton(this);
+                e.preventDefault();
+            });
+            $('#previewPhoneBtn').click(function (e) {
+                setLivePreviewFrameSize($(this));
+                setActiveResponsiveButton(this);
+                e.preventDefault();
+            });
+
+            detectActiveResponsiveButton();
+        }
+
+        if (jQuery.isReady) {
+            init(jQuery);
+        } else {
+            jQuery(function ($) {
+                init($);
+            });
+        }
+
+        function setActiveResponsiveButton(btn) {
+            $(".page-preview-header > a").removeClass("active");
+            $(btn).addClass("active");
+        }
+
+        function detectActiveResponsiveButton() {
+            var d = device;
+            if (!d) {
+                d = 'desktop';
+            }
+            $("#preview" + d.charAt(0).toUpperCase() + d.substr(1) + "Btn").click();
+        }
+
+        function getDataPreviewSizeAttr(el) {
+            return el.closest("[data-preview-size]").attr("data-preview-size");
+        }
+
+        function setLivePreviewFrameSize(srcEl) {
+            var getScrollbarWidth = function () {
+                var s = $('<div style="width:100px;height:100px;overflow:scroll;visibility:hidden;position:absolute;top:-99999px"><div style="height:200px;"></div></div>')
+                    .appendTo("body");
+                var res = s.width() - s.find("div").last().width();
+                s.remove();
+                return res;
+            };
+            var attr = getDataPreviewSizeAttr(srcEl);
+            $('#livePreviewFrame').width(attr.indexOf("%") !== -1 ? attr : parseInt(attr, 10) + getScrollbarWidth());
+        }  
+</script>
+</body>
+</html>
