@@ -1,0 +1,38 @@
+.formatted-text {
+  & >p, >ul, >ol, >dl, >figure, >blockquote {
+    margin-bottom: 1.5em;
+  }
+
+  & > h1, > h2, > h3, > h4, > h5, > h6 {
+    color: inherit;
+    line-height: 1.2;
+    font-weight: bold;
+    margin: 30px 0 15px;
+    padding: 0;
+  }
+
+  li > a, p > a {
+    text-decoration: none;
+  }
+
+  h1 {
+    @include font-size-h1;
+  }
+
+  h2 {
+    @include font-size-h2;
+  }
+
+  h3 {
+    @include font-size-h3;
+  }
+
+  h4{
+    @include font-size-h4;
+  }
+
+  h5, h6 {
+    @include font-size-h5;
+  }
+
+}//formatted-text

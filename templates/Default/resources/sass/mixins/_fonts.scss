@@ -1,0 +1,44 @@
+@mixin font-size-h1{
+  font-size: 74px;
+
+  @include media(xs){
+    font-size: 33px;
+  }
+}
+
+@mixin font-size-h2{
+  font-size: font-size(3);
+
+  @include media(xs){
+    font-size: font-size(2);
+  }
+}
+
+@mixin font-size-h3{
+  font-size: font-size(2);
+
+  @include media(xs){
+    font-size: font-size(0);
+  }
+}
+
+@mixin font-size-h4{
+  font-size: font-size(0);
+
+  @include media(xs){
+  }
+}
+
+@mixin font-size-h5{
+  font-size: font-size(-1);
+
+  @include media(xs){
+  }
+}
+
+@mixin font-size-h6{
+  font-size: font-size(-2);
+
+  @include media(xs){
+  }
+}

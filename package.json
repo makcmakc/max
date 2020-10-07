@@ -1,11 +1,25 @@
 {
   "name": "max",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Command line interface for rapid bootstrap project.",
+  "main": "src/index.js",
+  "bin": {
+    "max/max": "bin/max",
+    "max": "bin/max"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "engines": {
+    "node": ">=8.9"
+  },
+  "keywords": [
+    "max",
+    "cli"
+  ],  
   "author": "Maximillian",
   "license": "ISC",
   "dependencies": {

@@ -1,0 +1,23 @@
+@mixin section-margin-lg {
+  margin: 0 0 $space-lg 0;
+}
+
+@mixin section-padding-lg {
+  padding: 0 0 $space-lg 0;
+}
+
+@mixin section-margin-xlg {
+  margin: 0 0 $space-xlg 0;
+}
+
+@mixin section-padding-xlg {
+  padding: 0 0 $space-xlg 0;
+}
+
+@mixin section-margin($margin) {
+  margin: $margin 0;
+}
+
+@mixin section-padding($padding) {
+  padding: $padding 0;
+}

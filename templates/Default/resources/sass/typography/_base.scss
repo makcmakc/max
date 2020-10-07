@@ -1,0 +1,178 @@
+::-webkit-scrollbar {
+  width: 8px;
+}
+ 
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.1); 
+  border-radius: 10px;
+}
+ 
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+
+body {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+
+  color: $black;
+  
+  width: 100%;
+  line-height: 1.6;
+  position: relative;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility; 
+}
+
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #222;
+}
+
+
+// Headings
+//-----------------------------------------------------
+
+$headings: 'h1', 'h2','h3','h4','h5','h6';
+
+// Base
+#{$headings} {
+  font-weight: bold;
+}
+
+h1 {
+  line-height: 52px;
+  @include font-xlg;
+}
+
+h2 {
+  line-height: 45px;
+  @include font-lg;
+}
+
+h3 {
+  line-height: 39px;
+  @include font-larger;
+}
+
+h4{
+  line-height: 35px;
+  @include font-med;
+}
+
+h5, h6 {
+  line-height: 29px;
+  @include font-sm;
+}
+
+
+
+// Paragraph
+//-----------------------------------------------------
+  p, ul, ol, dl, figure, blockquote{
+  margin-bottom: 0.75rem;
+  & + h1, & + h2, & + h3, & + h4, & + h5, & + h6{
+    margin-top: 1.5rem;
+  }
+}
+
+// Links
+//-----------------------------------------------------
+ a {
+   color: $black;
+
+   &:hover {
+     color: $black;
+   }
+
+   &:visited {
+    color: inherit;
+  }
+ }
+
+
+// Lists
+//-----------------------------------------------------
+
+ul, ol{
+  margin: 0 0 0 0;
+  padding:0 0 0 1.1em;
+
+  li{
+    margin-bottom: 0.3em;
+  }
+}
+
+ul.list {
+  margin:0;
+  padding:0;
+
+  li{
+    list-style:none;
+    margin-left: 1em;
+    margin-bottom: 0.5em;
+
+    &:before {
+      content: "\2022";
+      display: block;
+      float: left;
+      color: #000;
+      margin-left: -1em;
+    }
+  }
+
+  ul {
+    padding-left: 0;
+  }
+}
+
+ul.unstyled{
+  margin: 0;
+  padding: 0;
+
+  li{
+    list-style:none;
+    margin-bottom: 0.5em;
+  }
+
+  ul {
+    padding-left: 0;
+  }
+}
+
+dl{
+  margin: 0 0 0;
+}
+
+
+dl dt{
+  float:left;
+  margin-right:0.5em;
+}
+
+dl dt{
+  font-weight:bold;
+}
+
+hr {
+  border:none;
+  height: 1px;
+  background: 0;
+}
+
+blockquote{
+}

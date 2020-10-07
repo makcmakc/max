@@ -1,0 +1,79 @@
+
+//  Breakpoints
+//-------------------------------------------------------
+
+$lg-bp:1440px;
+$md-bp:1200px;
+$sm-bp:1023px;
+$sm2-bp:768px;
+$sm3-bp: 932px;
+$xs-bp:480px;
+$xxs-bp:320px;
+
+
+
+$breakpoints:(
+lg: $lg-bp,
+md: $md-bp,
+sm: $sm-bp,
+sm2: $sm2-bp,
+xs: $xs-bp,
+xxs: $xxs-bp
+);
+
+// viewport width < than breakpoint
+//-------------------------------------------------------
+@mixin media($bp) {
+  @if map-has-key($breakpoints, $bp) == true {
+    @media (max-width: map-get($breakpoints, $bp)) {
+      @content;
+    }
+  }
+  @else {
+    @media (max-width: $bp) {
+      @content;
+    }
+  }
+}
+
+// viewport width > than breakpoint
+//-------------------------------------------------------
+@mixin media-up($bp) {
+  @if map-has-key($breakpoints, $bp) == true {
+    @media (min-width: (map-get($breakpoints, $bp) + 1px)) {
+      @content;
+    }
+  }
+  @else {
+    @media (min-width: $bp) {
+      @content;
+    }
+  }
+}
+
+// viewport width between 2 breakpoints
+//-------------------------------------------------------
+@mixin media-between($bp1, $bp2) {
+  @if map-has-key($breakpoints, $bp1) == true {
+    $bp1: map-get($breakpoints, $bp1)
+  }
+  @if map-has-key($breakpoints, $bp2) == true {
+    $bp2: map-get($breakpoints, $bp2)
+  }
+
+  @media (min-width: $bp1) and (max-width: $bp2) {
+    @content;
+  }
+}
+
+
+// 480, 600, 768, 992, and 1382px
+
+
+// @media screen and (max-width: 1024px) {
+
+// }
+
+// @media screen and (max-width: 480px) {
+
+// }
