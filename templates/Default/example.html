@@ -9,15 +9,95 @@
   <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,user-scalable=no,width=device-width">
   <title>Live Viewer</title>
 
-  <!--------- Personal of "Example Page" ------------------------------------------------------------------> 
+  <!--------- Personal Style for Content "Example Page" ------------------------------------------------------------------> 
   <style>
+
+  .links-palette {
+    margin: 0 100px;
+    padding-top: 70px;
+    padding-bottom: 50px;
+  }
+
+  .links-palette .link {
+    position: relative;
+    cursor: pointer;
+    color: #000;
+    font-size: 26px;
+    margin: 50px;
+  }
+
+  .links-palette .link:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 2px;
+    top: 30px;
+    transform: scaleX(0);
+    background-color: #000;
+    transition: transform 0.3s;
+  }
+
+  .links-palette .link:hover:after {
+    transform: scaleX(1);
+  }
+
+  .link.active:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 2px;
+    top: 28px;
+    background-color: #000;
+    transition: transform 0.3s;
+    transform: scaleX(1);
+  }
+
+  .frame {
+    cursor: pointer;
+    color: #000;
+    font-size: 26px;    
+    border: 2px solid #000;
+    padding: 10px;
+    transition: background-color .3s ease-in-out, color .3s ease-in-out;
+  }
+
+  .frame:hover {
+    background-color: #000;
+    color: #fff;
+    transition: background-color .3s ease-in-out, color .3s ease-in-out;
+  }
     
   </style>
+  <!--------- Personal Scripts for Content of "Example Page" ------------------------------------------------------------------> 
+  <script>
+      // All color that used in project
+      const colors = ['#1E1E1E', '#28214F', '#F24E2B', '#F44336', '#E4ECB3', '#000000', '#FFFFFF', '#D0CBE9', '#7F7F7F', '#C4C4C4', 
+        '#CCCCCC', '#EEEEEE', '#FBF9F9', '#F8F8F8', '#FDFDFD']
+
+      // All Font Sizes
+      const fontSizes = [
+        {'name': 'font-xlg', 'value': 30},
+        {'name': 'font-lg', 'value': 28},
+        {'name': 'font-larger', 'value': 20},
+        {'name': 'font-med', 'value': 18},
+        {'name': 'font-sm', 'value': 16},
+        {'name': 'font-xs', 'value': 14},
+        {'name': 'font-xxs ', 'value': 12}
+      ]
+  </script>
 
   </head>
-    <body>
+
+  <body>
       
-    <div class="page-preview">
+    <section class="page-preview">
+
       <div class="page-preview__header">
         <div class="types">
           <button data-mode="desktop" data-width="1200px" class="size-btn is-active">
@@ -47,10 +127,98 @@
         </div>
       </div>
 
-      <div class="page-preview__body">
-          <iframe id="livePreviewFrame" src="./index.html" width="1057" height="640" style="width: 100%;"></iframe>
+      <div class="page-preview__sidebar">
+        <ul>
+          <li>
+            <a class="pagelist__title is-active" target="_blank" href="index.html">
+              <em>1.</em><em>Home</em>
+            </a>
+          </li>
+          <li>
+            <a class="pagelist__title" target="_blank" href="make.html">
+              <em>2.</em><em>Make</em>
+            </a>
+          </li>
+          <li>
+            <a class="pagelist__title" target="_blank" href="compare.html">
+              <em>3.</em><em>Compare</em>
+            </a>
+          </li>
+          <li>
+            <a class="pagelist__title" target="_blank" href="details.html">
+              <em>4.</em><em>Details</em>
+            </a>
+          </li>
+          <li>
+            <a class="pagelist__title" target="_blank" href="blog.html">
+              <em>5.</em><em>Blog</em>
+            </a>
+          </li>
+          <li>
+            <a class="pagelist__title" target="_blank" href="article.html">
+              <em>6.</em><em>Article</em>
+            </a>
+          </li>
+        </ul>
       </div>
-    </div>
+
+
+      <div class="page-preview__body" id="preview-wrapper">
+        <iframe id="preview"  width="1500" height="600" src="index.html"  frameborder="0"></iframe>
+<!--           <iframe id="livePreviewFrame" src="./index.html" width="1057" height="640" style="width: 100%;"></iframe> -->
+      </div>
+    </section>
+
+
+    <section class="section colors">
+      <div class="section__title">Color Palette</div>
+      <div class="color-palette"></div>
+    </section>
+
+    <section class="section icons">
+      <div class="section__title">Icons List</div>
+      <div class="icons-palette"></div>
+    </section>
+
+    <section class="section fonts">
+      <div class="section__title">Fonts Palette</div>
+      <div class="fonts-palette"></div>
+    </section>
+
+
+    <section class="section links">
+       <div class="section__title">Types Of Links</div>
+      <div class="links-palette">
+        <a href="#" class="link">I'm just a link</a>
+        <a href="#" class="link active">I'm an active link</a>
+        <a href="#" class="frame">I'm a frame link</a>
+      </div>     
+    </section>
+
+
+    <section class="section shadows">
+      <div class="section__title">Shadows Palette</div>
+      <div class="shadows-palette"></div>      
+    </section>
+
+
+    <section class="section buttons">
+      
+    </section>
+
+
+    <section class="inputs">
+      
+    </section>
+
+
+
+
+
+
+
+
+
 
 
 
@@ -82,6 +250,31 @@ html,
 body {
   height: 100%;
 }
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.section {
+  margin: 0 0 55px 0;
+  width: 100%;
+  position: relative;
+}
+
+
+.section__title {
+  text-align: center;
+  font-size: 32px;
+  padding-top: 0px;
+  margin-bottom: 30px;
+}
+
 .page-preview {
   border-radius: 0;
   height: 100%;
@@ -134,7 +327,7 @@ body {
 }
 
 .page-preview__body {
-  height: calc(100% - 70px);
+  height: calc(100% - 100px);
   overflow: hidden;
   text-align: center;
 
@@ -143,9 +336,97 @@ body {
 .page-preview__body iframe {
   border: none;
   display: inline-block;
-  box-shadow: 0 0 0 2px #000;
+  -webkit-box-shadow: -1px 6px 24px 1px rgba(112,98,112,0.66);
+  -moz-box-shadow: -1px 6px 24px 1px rgba(112,98,112,0.66);
+  box-shadow: -1px 6px 24px 1px rgba(112,98,112,0.66);
   height: 100%;
+  margin-top: 20px;
 }
+
+.page-preview__sidebar {
+  position: relative;
+}
+
+.page-preview__sidebar ul {
+  flex-direction: column;
+  display: flex;
+  position: absolute;
+  left: 20px;
+  top: 150px;
+}
+
+.page-preview__sidebar ul li {
+  margin-bottom: 30px;
+  list-style: none;
+  font-size: 22px;
+}
+
+.page-preview__sidebar ul li a {
+  text-decoration: none;
+  color: #000;
+}
+
+.page-preview__sidebar ul li em {
+  margin-left: 10px;
+}
+
+
+.colors {}
+
+.colors .color-palette {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: stretch;
+  margin: 0 30px;
+}
+
+
+.colors .color-palette .color-box {
+position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
+  color: #fff;
+/*  margin: 1px;*/
+}
+@media (min-width: 800px) {
+  .colors .color-palette .color-box {
+    width: 33.33%;
+  }
+}
+@media (min-width: 1000px) {
+  .colors .color-palette .color-box {
+    width: 11.11%;
+  }
+}
+/*.colors .color-palette .color-box:before,
+.colors .color-palette .color-box:before,*/
+.colors .color-palette .color-box span {
+  background: rgba(0, 0, 0, 0.3);
+  display: block;
+  line-height: 1.75;
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  padding: 5px 0;
+}
+/*.colors .color-palette .color-box span, {
+  bottom: 28px;
+}*/
+.colors .color-palette .color-box span {
+  bottom: 0;
+}
+
+.fonts {}
+
+.fonts .fonts-palette {
+  margin: 0 100px;
+}
+
+.fonts .fonts-palette .font-box {
+  padding: 15px;
+}
+
 </style>  
 
 
@@ -201,192 +482,188 @@ body {
     
 
 
+
+<!-- Page Viewer -------------------------------------------------------------------------->
 <script>
-  var navs = document.querySelectorAll('size-btn');
-  var body = document.querySelectorAll('body')[0];
-  var previewButtons = document.querySelectorAll('.pagelist__title');
-  var iframe = document.getElementById('livePreviewFrame');
-  var previewWrapper = document.querySelector('.page-preview__body');
-  // colors-pallete
+    let navs = document.querySelectorAll('button');
+    let body = document.querySelectorAll('body')[0];
+    let previewButtons = document.querySelectorAll('.pagelist__title');
+    let iframe = document.getElementById('preview');
+    let previewWrapper = document.getElementById('preview-wrapper');
 
 
-  function removeActive(){
-    [].forEach.call(previewButtons, function(button) {
-      button.classList.remove('is-active');
-    });
-  }
-
-  function getScrollbarWidth() {
-      var outer = document.createElement("div");
-      outer.style.visibility = "hidden";
-      outer.style.width = "100px";
-      outer.style.msOverflowStyle = "scrollbar"; // needed for WinJS apps
-
-      document.body.appendChild(outer);
-
-      var widthNoScroll = outer.offsetWidth;
-      // force scrollbars
-      outer.style.overflow = "scroll";
-
-      // add innerdiv
-      var inner = document.createElement("div");
-      inner.style.width = "100%";
-      outer.appendChild(inner);        
-
-      var widthWithScroll = inner.offsetWidth;
-
-      // remove divs
-      outer.parentNode.removeChild(outer);
-
-      return widthNoScroll - widthWithScroll;
-  }
-  var  scrollbarwidth = getScrollbarWidth();
-
-  [].forEach.call(previewButtons, function(button) {
-    button.addEventListener('click', function(event) {
-      
-      if(window.innerWidth < 780){return;}
-      event.preventDefault();
-      removeActive();
-      var el = event.currentTarget;
-      el.classList.add('is-active');
-      iframe.src = el.href;
-    }, false);
-  });
-
-  
-  var mode = 'wide';
-  [].forEach.call(navs, function(nav) {
-    nav.addEventListener('click', function(event) {
-        event.preventDefault();
-        mode = event.currentTarget.dataset.mode;
-        iframe.style.width = parseInt(event.currentTarget.getAttribute('data-width')) + parseInt(scrollbarwidth) + 'px';
-
-        body.setAttribute('data-mode','is-' + mode);
-
-
-        [].forEach.call(navs, function(nav) {
-          nav.classList.remove('is-active');
-        })
-        event.currentTarget.classList.add('is-active');
-
-        setIframeWidth();
-    }, false);
-
-    function setIframeWidth(){
-      // getting preview area width
-      var pwidth = previewWrapper.offsetWidth;
-      var pheight = previewWrapper.offsetHeight;
-
-      // iframe width
-      var iwidth = iframe.offsetWidth;
-      var iheight = iframe.offsetHeight;
-
-      var scaleV = pheight/iheight;
-      var scaleH = pwidth/iwidth;
-
-      if(mode=='mobile'){
-        iframe.style.transform = 'scale('+ 1 +')';
-        iframe.style.height =  pheight + 'px';
-
-        
-        return;
-      }
-      if(scaleH>1){scaleH = 1;}
-      iframe.style.transform = 'scale('+ scaleH +')';
-
-      iframe.style.height =  pheight/scaleH + 'px';
-      // console.log(pheight*(2 - scaleV) + 'px');
-
-      var realheight = iframe.getBoundingClientRect().height;
-
-      if(realheight>pheight){
-        iframe.style.transform = 'scale('+ scaleV +')';
-      }
-
-
-
-      console.log(scaleV,scaleH);
+    function removeActive(){
+      [].forEach.call(previewButtons, function(button) {
+        button.classList.remove('is-active');
+      });
     }
 
-    setIframeWidth();
-    // resize event
-    window.addEventListener("resize", function(){
-      setIframeWidth();
+    function getScrollbarWidth() {
+        var outer = document.createElement("div");
+        outer.style.visibility = "hidden";
+        outer.style.width = "100px";
+        outer.style.msOverflowStyle = "scrollbar"; // needed for WinJS apps
+
+        document.body.appendChild(outer);
+
+        var widthNoScroll = outer.offsetWidth;
+        // force scrollbars
+        outer.style.overflow = "scroll";
+
+        // add innerdiv
+        var inner = document.createElement("div");
+        inner.style.width = "100%";
+        outer.appendChild(inner);        
+
+        var widthWithScroll = inner.offsetWidth;
+
+        // remove divs
+        outer.parentNode.removeChild(outer);
+
+        return widthNoScroll - widthWithScroll;
+    }
+    let  scrollbarwidth = getScrollbarWidth();
+
+    [].forEach.call(previewButtons, function(button) {
+      button.addEventListener('click', function(event) {
+        
+        if(window.innerWidth < 780){return;}
+        event.preventDefault();
+        removeActive();
+        let el = event.currentTarget;
+        el.classList.add('is-active');
+        iframe.src = el.href;
+      }, false);
     });
 
+    
+    let mode = 'wide';
+    [].forEach.call(navs, function(nav) {
+      nav.addEventListener('click', function(event) {
+          event.preventDefault();
+          mode = event.currentTarget.dataset.mode;
+          iframe.style.width = parseInt(event.currentTarget.getAttribute('data-width')) + parseInt(scrollbarwidth) + 'px';
 
-  });
+          body.setAttribute('data-mode','is-' + mode);
+
+
+          [].forEach.call(navs, function(nav) {
+            nav.classList.remove('is-active');
+          })
+          event.currentTarget.classList.add('is-active');
+
+          setIframeWidth();
+      }, false);
+
+      function setIframeWidth(){
+        // getting preview area width
+        let pwidth = previewWrapper.offsetWidth;
+        let pheight = previewWrapper.offsetHeight;
+
+        // iframe width
+        let iwidth = iframe.offsetWidth;
+        let iheight = iframe.offsetHeight;
+
+        let scaleV = pheight/iheight;
+        let scaleH = pwidth/iwidth;
+
+        if(mode=='mobile'){
+          iframe.style.transform = 'scale('+ 1 +')';
+          iframe.style.height =  pheight + 'px';
+
+          
+          return;
+        }
+        if(scaleH>1){scaleH = 1;}
+        iframe.style.transform = 'scale('+ scaleH +')';
+
+        iframe.style.height =  pheight/scaleH + 'px';
+        // console.log(pheight*(2 - scaleV) + 'px');
+
+        let realheight = iframe.getBoundingClientRect().height;
+
+        if(realheight>pheight){
+          iframe.style.transform = 'scale('+ scaleV +')';
+        }
+
+
+
+        console.log(scaleV,scaleH);
+      }
+
+      setIframeWidth();
+      // resize event
+      window.addEventListener("resize", function(){
+        setIframeWidth();
+      });
+
+
+    });
 </script>
+
+<!-- Colors Palette -------------------------------------------------------------------------->
 <script>
-        var device = 'desktop';
-        function init($) {
-            $('#previewDesktopBtn').click(function (e) {
-                setLivePreviewFrameSize($(this));
-                setActiveResponsiveButton(this);
-                e.preventDefault();
-            });
+  function HexToHSB(hex) {
+    hex = hex.replace(/^#/, '')
+    hex = hex.length === 3 ? hex.replace(/(.)/g, '$1$1') : hex
 
-            $('#previewLaptopBtn').click(function (e) {
-                setLivePreviewFrameSize($(this));
-                setActiveResponsiveButton(this);
-                e.preventDefault();
-            });
-            $('#previewTabletBtn').click(function (e) {
-                setLivePreviewFrameSize($(this));
-                setActiveResponsiveButton(this);
-                e.preventDefault();
-            });
-            $('#previewPhoneHorizontalBtn').click(function (e) {
-                setLivePreviewFrameSize($(this));
-                setActiveResponsiveButton(this);
-                e.preventDefault();
-            });
-            $('#previewPhoneBtn').click(function (e) {
-                setLivePreviewFrameSize($(this));
-                setActiveResponsiveButton(this);
-                e.preventDefault();
-            });
+    var red = parseInt(hex.substr(0, 2), 16) / 255,
+      green = parseInt(hex.substr(2, 2), 16) / 255,
+      blue = parseInt(hex.substr(4, 2), 16) / 255
 
-            detectActiveResponsiveButton();
-        }
+    var cMax = Math.max(red, green, blue),
+      cMin = Math.min(red, green, blue),
+      delta = cMax - cMin,
+      saturation = cMax ? (delta / cMax) : 0
 
-        if (jQuery.isReady) {
-            init(jQuery);
-        } else {
-            jQuery(function ($) {
-                init($);
-            });
-        }
+    switch (cMax) {
+      case 0:
+        return [0, 0, 0]
+      case cMin:
+        return [0, 0, cMax]
+      case red:
+        return [60 * (((green - blue) / delta) % 6) || 0, saturation, cMax]
+      case green:
+        return [60 * (((blue - red) / delta) + 2) || 0, saturation, cMax]
+      case blue:
+        return [60 * (((red - green) / delta) + 4) || 0, saturation, cMax]
+    }
+  }
+  colors.sort(function(a, b) {
+    var hsva = HexToHSB(a)
+    var hsvb = HexToHSB(b)
+    return hsva[0] - hsvb[0]
+  })
 
-        function setActiveResponsiveButton(btn) {
-            $(".page-preview-header > a").removeClass("active");
-            $(btn).addClass("active");
-        }
+  const $palette = document.querySelector('.color-palette')
+  colors.forEach(color => {
+    const colorBox = document.createElement('div')
+    colorBox.classList.add('color-box')
+    colorBox.style.background = color
 
-        function detectActiveResponsiveButton() {
-            var d = device;
-            if (!d) {
-                d = 'desktop';
-            }
-            $("#preview" + d.charAt(0).toUpperCase() + d.substr(1) + "Btn").click();
-        }
-
-        function getDataPreviewSizeAttr(el) {
-            return el.closest("[data-preview-size]").attr("data-preview-size");
-        }
-
-        function setLivePreviewFrameSize(srcEl) {
-            var getScrollbarWidth = function () {
-                var s = $('<div style="width:100px;height:100px;overflow:scroll;visibility:hidden;position:absolute;top:-99999px"><div style="height:200px;"></div></div>')
-                    .appendTo("body");
-                var res = s.width() - s.find("div").last().width();
-                s.remove();
-                return res;
-            };
-            var attr = getDataPreviewSizeAttr(srcEl);
-            $('#livePreviewFrame').width(attr.indexOf("%") !== -1 ? attr : parseInt(attr, 10) + getScrollbarWidth());
-        }  
+    const $span = document.createElement('span')
+    $span.innerHTML = color
+    colorBox.append($span)
+    $palette.append(colorBox)
+  })
 </script>
+
+<!-- Fonts List -------------------------------------------------------------------------->
+<script>
+  const $fonts = document.querySelector('.fonts-palette')
+
+  fontSizes.map(size => {
+    const font = document.createElement('div')
+    font.classList.add('font-box')
+    font.innerHTML = `${size.name}  -  ${size.value}px`
+    font.style.fontSize = `${size.value}px`
+
+    $fonts.append(font)
+  })
+</script>
+
+
+
+
 </body>
 </html>

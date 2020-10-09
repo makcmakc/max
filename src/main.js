@@ -47,7 +47,6 @@ export async function createProject(options) {
  console.log(`🎉  Successfully created project ${chalk.yellow(name)}.`)
 
  return true
-
 }
 
 
